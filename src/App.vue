@@ -1,51 +1,46 @@
-<script setup>
-import { ref } from 'vue'
-
-let count = ref(0);
-
-function increment() {
-  count.value++;
-}
-
-function decrement() {
-  count.value--;
-}
-
-function incrementBy10() {
-  count.value += 10;
-}
-
-function decrementBy10() {
-  count.value -= 10;
-}
-
-function reset() {
-  count.value = 0;
+<script>
+export default {
+  data: function() {
+    return {
+      email: '', 
+      emailIsValid: false 
+    };
+  },
+  methods: {
+    
+    checkEmail() {
+      const inputEmail = prompt("Please enter your email:");
+      if (inputEmail !== null) {
+        this.email = inputEmail.trim();
+        this.emailIsValid = this.validateEmail(this.email);
+      }
+    },
+    
+    validateEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(email);
+    },
+    
+    resetEmail() {
+      this.email = '';
+      this.emailIsValid = false;
+    }
+  }
 }
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="hellooo" />
-      <HelloWorld msg="sfxcvcb" />
-      <HelloWorld msg="dsfsdfsssss" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-
-    <button @click="incrementBy10()">+10</button>
-    <button @click="increment()">+</button>
-    <span>{{ count }}</span>
-    <button @click="decrement()">-</button>
-    <button @click="decrementBy10()">-10</button>
-    <button @click="reset()">Reset</button>
+  <div>
     
-  </main>
+    <button @click="checkEmail()">Input Email</button>
+
+    <h1 :style="{ borderColor: emailIsValid ? 'green' : 'red' }">{{ email }}</h1>
+    <h4 v-if="emailIsValid">The email is valid</h4>
+    <h4 v-else>The email is invalid</h4>
+
+    
+    <button @click="resetEmail()">Reset</button>
+  </div>
 </template>
 
 <style scoped>
