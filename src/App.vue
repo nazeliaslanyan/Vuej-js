@@ -34,7 +34,7 @@ export default {
     
     <button @click="checkEmail()">Input Email</button>
 
-    <h1 :style="{ borderColor: emailIsValid ? 'green' : 'red' }">{{ email }}</h1>
+    <h1></h1> 
     <h4 v-if="emailIsValid">The email is valid</h4>
     <h4 v-else>The email is invalid</h4>
 
