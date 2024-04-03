@@ -32,23 +32,21 @@ export default {
     <div class="main">
         <h2 v-if="mode === 'AMD_to_USD'">AMD to USD</h2>
         <h2 v-else>USD to AMD</h2>
-        <input type="number" 
-        :value="amount"
+        <input type="number"
+         v-model="amount" 
          @input="convertCurrency">
-
         <span> ➜ </span>
 
         <input type="number"
          :value="convertedAmount" 
-        readonly 
-        :disabled="mode === 'USD_to_AMD'">
+         readonly
+          :disabled="mode === 'USD_to_AMD'">
         <div>
-            <button @click="toggleMode">{{ mode === 'AMD_to_USD' ? 'AMD -> USD' : 'USD -> AMD' }}</button>
+            <button @click="toggleMode">{{ mode === 'AMD_to_USD' ?'USD -> AMD'  :'AMD -> USD'  }}</button>
         </div>
-
     </div>
-
 </template>
+
 
 
 <style scoped>
