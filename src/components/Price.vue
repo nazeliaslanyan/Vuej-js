@@ -1,16 +1,18 @@
-  
-  <script>
-  export default {
-    props: {
-        price: Number
-    }
-  };
-  </script>
- 
- 
+<script>
+export default {
+  props: {
+    value: {
+      type: String,
+      required: true,
+    },
+  }
+}
+</script>
+
+
 
 <template>
-    <div>
-      <p>Price: {{price }}</p>
-    </div>
-  </template>
+  <div>
+    <span>Price: {{ price }}</span>
+  </div>
+</template>

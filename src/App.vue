@@ -1,5 +1,3 @@
-
-
 <script>
 import Product from './components/Product.vue';
 

@@ -1,15 +1,17 @@
-  
-  <script>
-  export default {
-    props: {
-        description: String
+<script>
+export default {
+  props: {
+    value: {
+      type: String,
+      required: true,
     }
-  };
-  </script>
-  
+  }
+};
+</script>
+
 
 <template>
-    <div>
-      <p>Description: {{ description }}</p>
-    </div>
-  </template>
+  <div>
+    <span>Description: {{ description }}</span>
+  </div>
+</template>
