@@ -13,6 +13,6 @@ export default {
 
 <template>
   <div>
-    <span>Price: {{ price }}</span>
+    <span>Price: {{ value }}</span>
   </div>
 </template>

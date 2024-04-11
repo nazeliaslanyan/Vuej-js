@@ -13,6 +13,6 @@ export default {
 
 <template>
   <div>
-    <span>Name: {{ name }}</span>
+    <span>Name: {{ value }}</span>
   </div>
 </template>

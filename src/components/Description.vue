@@ -12,6 +12,6 @@ export default {
 
 <template>
   <div>
-    <span>Description: {{ description }}</span>
+    <span>Description: {{ value }}</span>
   </div>
 </template>
