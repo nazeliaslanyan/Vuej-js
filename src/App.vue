@@ -10,37 +10,57 @@ export default {
       fruits: [
         {
           name: 'apple',
-          price: '$3',
+          price: '300֏',
           description: "Golden apples from Armenia"
         },
         {
           name: 'pear',
-          price: '$3.4',
+          price: '3.4$',
           description: 'Sweet pears'
         },
         {
           name: 'cherry',
-          price: '$2.6',
+          price: '2.6$',
           description: "Sour red cherries"
         },
         {
           name: 'lemon',
-          price: '$4',
+          price: '4$',
           description: "Big Chinese lemons"
         },
         {
           name: 'banana',
-          price: '$3.7',
+          price: '3.7$',
           description: "Fresh bananas from Ecuador"
         }
-      ]
+      ],
+      rate: 400
     };
+  },
+  methods: {
+    onCurrencychange(index) {
+      const fruit = this.fruits[index];
+      let currentCurrency = fruit.price[fruit.price.length - 1];
+
+      if (currentCurrency === '$') {
+
+        fruit.price = parseFloat(fruit.price) * this.rate + '֏';
+
+      } else {
+        fruit.price = parseFloat(fruit.price) / this.rate + '$';
+      }
+    }
   }
 };
 </script>
 
 <template>
-  <div>
-    <Product v-for="(fruit, index) in fruits" :key="index" :fruit="fruit" />
-  </div>
+
+  <ol>
+    <li v-for="(fruit, index) in fruits" :key="index">
+      <Product :fruit="fruit" @currencyChange="onCurrencychange(index)" />
+    </li>
+
+  </ol>
+
 </template>
